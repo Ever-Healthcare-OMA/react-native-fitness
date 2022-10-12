@@ -487,11 +487,6 @@ public class Manager implements ActivityEventListener {
         WritableMap heartRateMap = Arguments.createMap();
         for (DataPoint dp : dataSet.getDataPoints()) {
             for(Field field : dp.getDataType().getFields()) {
-                WritableMap heartRateMap = Arguments.createMap();
-                heartRateMap.putString("startDate", dateFormat.format(dp.getStartTime(TimeUnit.MILLISECONDS)));
-                heartRateMap.putString("endDate", dateFormat.format(dp.getEndTime(TimeUnit.MILLISECONDS)));
-                heartRateMap.putDouble("quantity", dp.getValue(field).asFloat());
-                map.pushMap(heartRateMap);
                 if(index == 0) {
                     ++index;
                     heartRateMap.putString("startDate", dateFormat.format(dp.getStartTime(TimeUnit.MILLISECONDS)));
